@@ -1,19 +1,21 @@
 (function(exports){
 
 
-    var nodetest = function() {
-        console.log('testing node');
+    var nodeAssert = function(value, desc) {
+        var result = value ? 'PASS: ' : 'FAIL: ';
+            console.log(result + desc);
+    };
 
+
+    var browserAssert = function(value, desc) {
+        var li = document.createElement("li");
+        li.className = value ? 'pass' : 'fail';
+        li.appendChild(document.createTextNode(desc));
+        document.getElementById("results").appendChild(li);
     }
 
 
-    var browsertest = function() {
-        console.log('testing browser');
-
-    }
-
-
-    exports.test = typeof window === 'undefined' ? nodetest : browsertest;
+    exports.assert = typeof window === 'undefined' ? nodeAssert : browserAssert;
 
 
 })(typeof exports === 'undefined'? this['test']={}: exports);
