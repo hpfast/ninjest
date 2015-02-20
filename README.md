@@ -41,3 +41,10 @@ Then I realized: we don't actually want this behaviour! Because we're not going 
 Though maybe some kind of trace would be useful.
 
 Well, we can do that: the code can contain console.trace(value,desc) instead of console.log. But we might want to add a verbose flag.
+
+##Step 2: test groups
+
+the code comes from the book again.
+
+Ok, but the trouble is that we can't modify previous output to the console, as we modify parent elements in the browser. So we need to peek ahead and use some sort of queueing for this code.
+

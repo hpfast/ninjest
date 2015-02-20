@@ -1,14 +1,20 @@
 //this is my script that I want to run in the browser
 
-function aTestFunc(){
-    var a = 2, b = 3;
-
-    return a + b == 9;
-
-}
 
 window.onload = function() {
-    test.assert(1 + 2 == 3, "The test suite is running.");
-    test.assert(1 + 2 == 4, "Fail!");
-    test.assert(aTestFunc(), "oops, it doesn't add up");
+    test.assert(2+4==6,'A simple test')
+    test.test('A test group', [
+            [true, "First test passed"],
+            [false, "Second test failed"]
+        ]);
+
+    test.test('Test some math expressions', [
+        [8+2 == 10, 'adding works'],
+        [8-2 == 10, "subtracting doesn't work"]
+    ]);
+    test.test('Test some MORE math expressions', [
+        [8+2 == 10, 'adding works'],
+        [8-2 == 6, "subtracting works now"]
+    ]);
 };
+

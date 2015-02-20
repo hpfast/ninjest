@@ -1,17 +1,33 @@
 //this is a script to call from the command line
 
-var test = require('./test.js');
+var test = require('./test2.js');
 
 
-function aTestFunc(){
-    var a = 2, b = 3;
+//test.test("A test.", function() {
+//    test.assert(true, "First assertion completed");
+//    test.assert(true, "Second assertion completed");
+//    test.assert(true, "Third assertion completed");
+//});
+//test.test("Another test.", function() {
+//    test.assert(true, "First test completed");
+//    test.assert(false, "Second test failed");
+//    test.assert(true, "Third assertion completed");
+//});
+//test.test("A third test.", function() {
+//    test.assert(null, "fail");
+//    test.assert(5, "pass")
+//});
 
-    return a + b == 9;
+test.test('A test group', [
+        [true, "First test passed"],
+        [false, "Second test failed"]
+    ]);
 
-}
-
-
-test.assert(1+2 == 3,'the test suite is running!');
-test.assert(1+2 == 4,'fail!');
-test.assert(aTestFunc(), 'oops, it doesnt add up~');
-
+test.test('Test some math expressions', [
+    [8+2 == 10, 'adding works'],
+    [8-2 == 10, "subtracting doesn't work"]
+]);
+test.test('Test some MORE math expressions', [
+    [8+2 == 10, 'adding works'],
+    [8-2 == 6, "subtracting works now"]
+]);
