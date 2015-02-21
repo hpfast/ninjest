@@ -2,19 +2,21 @@
 
 
 window.onload = function() {
-    test.assert(2+4==6,'A simple test')
-    test.test('A test group', [
-            [true, "First test passed"],
-            [false, "Second test failed"]
-        ]);
+    test.test("Async Test #1", function() {
+        test.pause();
+        setTimeout(function() {
+            test.assert(true, "First test completed");
+            test.resume();
+        }, 10);
+    });
 
-    test.test('Test some math expressions', [
-        [8+2 == 10, 'adding works'],
-        [8-2 == 10, "subtracting doesn't work"]
-    ]);
-    test.test('Test some MORE math expressions', [
-        [8+2 == 10, 'adding works'],
-        [8-2 == 6, "subtracting works now"]
-    ]);
+    test.test("Async Test #2", function() {
+        test.pause();
+        setTimeout(function() {
+            test.assert(false, "Second test completed");
+            test.resume();
+        }, 3000);
+        test.assert(true,"Third test completed");
+    });
 };
 

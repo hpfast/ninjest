@@ -1,33 +1,20 @@
 //this is a script to call from the command line
 
-var test = require('./test2.js');
+var test = require('./test3.js');
 
+test.test("Async Test #1", function() {
+    test.pause();
+    setTimeout(function() {
+        test.assert(true, "First test completed");
+        test.resume();
+    }, 1000);
+});
 
-//test.test("A test.", function() {
-//    test.assert(true, "First assertion completed");
-//    test.assert(true, "Second assertion completed");
-//    test.assert(true, "Third assertion completed");
-//});
-//test.test("Another test.", function() {
-//    test.assert(true, "First test completed");
-//    test.assert(false, "Second test failed");
-//    test.assert(true, "Third assertion completed");
-//});
-//test.test("A third test.", function() {
-//    test.assert(null, "fail");
-//    test.assert(5, "pass")
-//});
-
-test.test('A test group', [
-        [true, "First test passed"],
-        [false, "Second test failed"]
-    ]);
-
-test.test('Test some math expressions', [
-    [8+2 == 10, 'adding works'],
-    [8-2 == 10, "subtracting doesn't work"]
-]);
-test.test('Test some MORE math expressions', [
-    [8+2 == 10, 'adding works'],
-    [8-2 == 6, "subtracting works now"]
-]);
+test.test("Async Test #2", function() {
+    test.pause();
+    setTimeout(function() {
+        test.assert(false, "Second test completed");
+        test.resume();
+    }, 3000);
+    test.assert(true,"Third test completed");
+});
