@@ -1,0 +1,21 @@
+{
+  "name": "protest",
+  "version": "0.0.1",
+  "description": "portable jsninja test suite",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hans Fast",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hpfast/protest"
+  },
+  "bugs": {
+    "url": "https://github.com/hpfast/protest/issues"
+  }
+}
