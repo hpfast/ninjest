@@ -56,8 +56,13 @@ At the command line, the visualisation of a test group parent is not changed to 
 ##Usage
 There are two functions available. In the browser, these will be available as methods of the `test` object; in Node, they'll be methods of whatever variable you require `protest` as.
 
-    * `assert(test Expression|Boolean, description String)` -- run a simple test, the first argument is the expression or function which must evaluate/return `true` or `false`, the second argument is a description of the test.
-    * `test(name String, function Function, [async] Boolean)` -- run a group of asserts, they will be grouped visually in the output and in the browser the whole group will be indicated as failing if one assert fails. If the last argument `async` is true, the test group will pause until any asynchronous operations complete.
+###`assert(test Expression|Boolean, description String)`
+
+run a simple test, the first argument is the expression or function which must evaluate/return `true` or `false`, the second argument is a description of the test.
+
+###`test(name String, function Function, [async] Boolean)`
+
+run a group of asserts, they will be grouped visually in the output and in the browser the whole group will be indicated as failing if one assert fails. If the last argument `async` is true, the test group will pause until any asynchronous operations complete.
 
 A `test` returns a promise, so you can chain them together. The implementation of the async behaviour is as follows: if the async argument is not set, we call the function and resolve the deferred manually; if it is set, we call the function and pass it the defferred as an argument. Then in the function we can manually resolve the deferred after our asyncrhonous operations have completed.
 
